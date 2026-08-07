@@ -25,3 +25,5 @@ while True:
     print("Analog voltage value: " + str(Volt) + " V\t Threshold value: ", end="")
 
     sleep(1)
+
+    
