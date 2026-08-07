@@ -11,6 +11,10 @@
 # no sound. no move. no sound. no move. no sound. MOVE! BUZZ
 #no sound. no move. SOUND!....(Movement takes place here but its paused).... no move. no sound. SOUND!....... etc etc? Would that work?
 
+import machine
+import time
+from machine import pin
+
 
 def volume():
     while True:
