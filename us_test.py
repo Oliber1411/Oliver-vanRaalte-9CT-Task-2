@@ -23,7 +23,7 @@ while True:
      while echo_pin.value()==0:
           pulse_start = time.ticks_us()
      while echo_pin.value()==1:
-          pulse_end = time.ticks_us()
+          pulse_end = time.ticks_us() 
      pulse_duration = pulse_end - pulse_start
 
      # Now the distance is calculated using the recorded time
