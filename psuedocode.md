@@ -1,7 +1,7 @@
 WHILE TRUE
     volume = CALL volume
     distance =  CALL distance
-    IF distance != 1 THEN
+    IF distance != 0 THEN
         IF volume == 1:
             WAIT 30 seconds
         ELSE:

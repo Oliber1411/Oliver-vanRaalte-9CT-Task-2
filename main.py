@@ -17,6 +17,8 @@ from machine import Pin, ADC
 trigger_pin = Pin(17, Pin.OUT)
 echo_pin = Pin(16, Pin.IN, Pin.PULL_DOWN)
 digital = Pin(18,Pin.IN, Pin.PULL_UP)
+buzzer = Pin(19, Pin.OUT, value=0)
+
 
 def door_open():
     trigger_pin.value(0) #off
@@ -51,5 +53,12 @@ def heard_sound():
 if __name__ == "__main__":
     while True:
         sound = heard_sound()
-        
+        movement = door_open()
+        if movement == 1:
+            if sound == 0:
+                buzzer.value(1)
+                time.sleep(7)
+                buzzer.value(0)
+            else:
+                time.sleep(12)
 
