@@ -16,6 +16,7 @@ import time
 from machine import Pin, ADC
 trigger_pin = Pin(17, Pin.OUT)
 echo_pin = Pin(16, Pin.IN, Pin.PULL_DOWN)
+digital = Pin(18,Pin.IN, Pin.PULL_UP)
 
 def door_open():
     trigger_pin.value(0) #off
@@ -40,3 +41,15 @@ def door_open():
     else:
         return 0
     
+def heard_sound():
+    digital_value = digital.value()
+    if digital_value == 0:
+        return 1
+    else:
+        return 0
+    
+if __name__ == "__main__":
+    while True:
+        sound = heard_sound()
+        
+
