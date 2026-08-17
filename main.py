@@ -19,7 +19,7 @@ while True:
     def volume():
         while True:
             #read pin xx and output like 1 or smth when it detects smth
-            #yeah only move onto the next thing when its heard a sound in the last,, 6? seconds, doesnt matter yet
+            
 
     def movement():
         while True:
