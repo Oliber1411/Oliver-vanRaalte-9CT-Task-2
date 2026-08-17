@@ -14,13 +14,29 @@
 import machine
 import time
 from machine import Pin, ADC
+trigger_pin = Pin(17, Pin.OUT)
+echo_pin = Pin(16, Pin.IN, Pin.PULL_DOWN)
 
-while True:
-    def volume():
-        while True:
-            #read pin xx and output like 1 or smth when it detects smth
-            
+def door_open():
+    trigger_pin.value(0) #off
+    time.sleep(0.1)
+    trigger_pin.value(1) #on
+    time.sleep_us(2)
+    trigger_pin.value(0)
 
-    def movement():
-        while True:
-        #Read pin xx and aoutput smth when smths distance changes
+    while echo_pin.value() == 0:
+        pass
+    start_time = time.ticks_us() #records the time when the echo pin turns on
+
+    while echo_pin.value() == 1:
+        pass
+    end_time = time.ticks_us() #records the time when the echo pin turns off
+
+    duration = time.ticks_diff(end_time, start_time)
+    distance = (duration * 0.0343) / 2
+
+    if distance < 10:  # I DONT KNOW THE DISTANCE AGGG
+        return 1
+    else:
+        return 0
+    
