@@ -52,13 +52,16 @@ def heard_sound():
     
 if __name__ == "__main__":
     while True:
+        heard_sound()
+        door_open()
         sound = heard_sound()
+        if sound == 1:
+            for i in range(1000):
+                movement = door_open()
+                if movement == 1:
+                    pass
+            time.sleep_us(1000)
         movement = door_open()
-        if movement == 1:
-            if sound == 0:
-                buzzer.value(1)
-                time.sleep(7)
-                buzzer.value(0)
-            else:
-                time.sleep(12)
+
+
 
