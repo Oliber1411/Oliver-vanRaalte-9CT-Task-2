@@ -54,14 +54,17 @@ if __name__ == "__main__":
     while True:
         heard_sound()
         door_open()
-        sound = heard_sound()
-        if sound == 1:
+        if heard_sound() == 1:
             for i in range(1000):
-                movement = door_open()
-                if movement == 1:
-                    pass
-            time.sleep_us(1000)
-        movement = door_open()
+                door_open()
+                if door_open() == 1:
+                    time.sleep_us(1000)
+                time.sleep_us(1000)
+        if door_open() == 1:
+            buzzer.on()
+            time.sleep(7)
+            buzzer.off()
+
 
 
 
