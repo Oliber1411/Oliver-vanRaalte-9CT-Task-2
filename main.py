@@ -66,3 +66,4 @@ if __name__ == "__main__":
             buzzer.on()
             time.sleep(7)
             buzzer.off()
+ 
